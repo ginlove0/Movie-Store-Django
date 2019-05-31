@@ -1,0 +1,47 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1">
+        <title>Movie Store</title>
+        <!-- Impot Boostrap css, js, font -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{% load static %}
+        <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/list.css' %}" rel="stylesheet" type="text/css">
+        <link href="{% static 'css/signup.css' %}" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+
+
+
+{% include 'headers.html' %}
+
+
+{% if messages %}
+ {% for message in messages %}
+<div class="alert alert-info">
+
+  <strong>{{ message }}</strong>
+
+</div>
+   {% endfor %}
+{% endif %}
+
+  <main>
+    {% block content %}
+
+
+    {% endblock %}
+  </main>
+
+  {% include 'footer.html' %}
+
+</body>
+</html>

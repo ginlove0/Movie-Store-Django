@@ -1,0 +1,116 @@
+
+/*html, body{*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*font-family: 'oswald';*/
+    /*font-size: 25px;*/
+    /*color: #222;*/
+
+/*}*/
+
+
+.navbar{
+    background-color: rgba(88, 153, 210, 0.9);
+}
+.navbar li a{
+    color: white;
+}
+.navbar li a:hover{
+    color: black;
+}
+
+.carousel-inner img{
+    width: 70%;
+}
+
+#slides img{
+    width: 100%;
+}
+
+
+.legend-title{
+        display: block;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 20px;
+    font-size: 21px;
+    line-height: inherit;
+    color: #333;
+    border: 0;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center;
+}
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,300,600,700);
+body {
+    background-color: #f9f9f9 !important;
+    font-family: 'Open Sans', sans-serif!important;
+
+}
+
+/*login box border */
+.well{
+    background-color:#fff!important;
+    border-radius:0!important;
+    border:black solid 1px;
+}
+
+.well.login-box {
+    border:#d1d1d1 solid 1px;
+    margin:0 auto;
+    margin-top:30px;
+}
+
+.well.login-box legend {
+  font-size:26px;
+  text-align:center;
+  font-weight:300;
+  font-weight: bold;
+}
+
+.loginBox input[type="submit"]:hover
+{
+	background: #efed40;
+	color: #262626;
+}
+
+.errorlist{
+    color: red;
+      list-style-type: none;
+
+}
+
+.products-movies{
+    border: 1px solid #333;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+.products-movies .btn{
+    margin-top: 5px;
+}
+
+
+.flash_mess {
+    position: absolute;
+
+    bottom: 0;
+    right: 0;
+}
+.navbar{
+    background-color: rgba(88, 153, 210, 0.9);
+}
+.navbar li a{
+    color: black;
+}
+.navbar li a:hover{
+    color: black;
+}
+
+.nav{
+    background-color: rgba(88, 153, 210, 0.9);
+}
+/*--signup---*/
+
+

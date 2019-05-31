@@ -1,0 +1,81 @@
+
+                    {% extends 'base.html' %}
+                    {% block content %}
+                    {% load static %}
+                    {% load templatetags%}
+
+
+<div class="container-fluid padding">
+
+<div class="row padding">
+<div class="col-md-2">
+                </div>
+       {% if carts  %}
+                <div class="col-md-8">
+                  <blockquote class="blockquote text-center mt-3">
+  <h1 class="mb-0">My Cart</h1>
+</blockquote>
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th scope="col">Name</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">In Stock</th>
+                                <th scope="col">Movie Price</th>
+                                <th scope="col">Total Price</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cart in carts %}
+                            <tr>
+                                <!--<td><img src="./images/avenger.jpg" height="100" /></td>-->
+                                <td style="vertical-align: middle;">{{cart.movies.name}}</td>
+                                <!--<td style="vertical-align: middle;">$50</td>-->
+                                <td style="vertical-align: middle;">
+                                  <form method="post" action="{% url 'putcart-view' cart.id %}">
+                                    {% csrf_token %}
+                                    <input id="qty_id" type="number" onchange="change({{cart.movies.in_stock}})" name="quantity" value="{{cart.quantity}}">
+                                    <p id="mess"></p>
+                                    <input type="hidden" name="_method" value="put">
+                                    <button class="btn">Set</button>
+                                    <input type="hidden" value="{{cart.id}}" >
+                                  </form>
+                                </td>
+                                <td style="vertical-align: middle;">{{cart.movies.in_stock}}</td>
+                                <td style="vertical-align: middle;">{{cart.movies.price}}</td>
+                                <td style="vertical-align: middle;">{% multiply cart.movies.price cart.quantity%}</td>
+                                <td style="vertical-align: middle;">
+                                  <a href="{% url 'deletecart-view' cart.id %}" style="float: right"><button type="button" class="btn btn-outline-secondary">Delete</button></a>
+                                </td>
+                                <!--<td style="vertical-align: middle;">
+                                    1
+                                    <a href="#" style="float: right"><button type="button" class="btn btn-outline-secondary">Delete</button></a>
+                                </td>-->
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div style="float: right" class = "pull-right">
+                        <a href="/" class="btn">Back to Shopping</a>
+                        <a href="{% url 'checkout-index' %}" class="btn btn-success">Checkout</a>
+                  </div>
+ {% else %}
+                    <div class="container">
+            <blockquote class="blockquote text-center mt-3">
+  <h1 class="mb-0">Your cart is empty</h1>
+</blockquote>
+                        </div>
+{% endif %}
+
+
+                  </div>
+<div class="col-md-2">
+                </div>
+              </div>
+</div>
+
+<script src="{% static 'js/cart.js' %}"></script>
+{% endblock %}

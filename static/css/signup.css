@@ -1,0 +1,35 @@
+
+.o-heading {
+	 display: block;
+	 width: 100%;
+	 font-size: 2rem;
+	 line-height: 1.2;
+	 font-weight: 400;
+	 border-bottom: 1px solid #ccc;
+	 padding: 0 0 5px 0;
+	 margin: 40px auto 20px auto;
+	 max-width: 500px;
+}
+ .c-signup {
+	 min-width: 300px;
+	 max-width: 500px;
+	 margin: 30px auto;
+	 display: grid;
+	 grid-template-columns: repeat(2, 1fr);
+	 grid-gap: 20px;
+
+}
+ .c-signup__field > input[type] {
+	 width: 100%;
+}
+ .c-signup__field--fill {
+	 grid-column: span 2;
+}
+ .c-signup__button {
+	 grid-column: span 2;
+	 text-align: right;
+}
+
+ .errorlist {
+     align-self: center;
+ }

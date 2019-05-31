@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+
+<blockquote class="blockquote text-center mt-3">
+  <h1 class="mb-0">Order</h1>
+</blockquote>
+
+   <table class="table">
+   <thead>
+   <tr>
+   <td>ID</td>
+   <td>Name</td>
+   <td>Status</td>
+   <td>Day</td>
+   <td></td>
+</tr>
+</thead>
+
+<tbody>
+
+{% for movie in object_list %}
+
+<tr>
+<td>{{movie.order.id}}</td>
+<td>{{ movie.movies.name }}</td>
+
+<td>{{ movie.order.status }}</td>
+<td>{{ movie.order.date_make_order }}</td>
+
+<td><a href="{% url 'order-cancel' movie.order.id %}">Cancel</a></td>
+
+</tr>
+
+{% endfor %}
+</tbody>
+</table>
+
+
+ <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Seach" name="order" aria-label="Search">
+                        <button class="btn btn-light my-sm-0" type="submit">Search</button>
+
+                 </form>
+
+ <small id="emailHelp" class="form-text text-muted">Search by order id and date as Year-Month-Day</small>
+
+{% endblock %}

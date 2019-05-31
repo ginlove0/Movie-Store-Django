@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+<head>
+     <link rel="stylesheet" media="all"
+           href="https://cdn.jsdelivr.net/gh/hankchizljaw/boilerform@master/dist/css/boilerform.min.css"/>
+ </head>
+ <div class="col-md-6 offset-md-3">
+ 
+     <div class="boilerform login-box well mb-5">
+         <div class="form-group container mt-3">
+              <legend class="legend-title" align="center">Sign Up</legend>
+             <div class="container">
+ 
+                 <form method="post" class="d-flex flex-column justify-content-center">
+                     {% csrf_token %}
+ 
+                     <!-- this field is showing error -->
+                     {% if form.errors %}
+                     <ul class="errorlist">
+                         {% for field, errors in form.errors.items %}
+                         {% for error in errors %}
+                         <li>{{ error }}</li>
+                         {% endfor %}
+ 
+                         {% endfor %}
+                     </ul>
+                     {% endif %}
+ 
+                     <div class="c-signup">
+                         <div class="c-signup__field">
+                             <label for="id_first_name" class="c-label">First name</label>
+                             <input type="text" name="first_name" id="id_first_name" class="c-input-field"
+                                    maxlength="30"/>
+                         </div>
+ 
+                         <div class="c-signup__field">
+                             <label for="id_last_name" class="c-label">Last name</label>
+                             <input type="text" name="last_name" id="id_last_name" class="c-input-field"
+                                    maxlength="150"/>
+                         </div>
+ 
+                         <div class="c-signup__field c-signup__field--fill">
+                             <label for="id_username" class="c-label">Username</label>
+                             <input type="text" name="username" id="id_username" class="c-input-field" maxlength="150"
+                                    required=""/>
+                             <span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./ /-/_ only.</span>
+                         </div>
+ 
+                         <div class="c-signup__field c-signup__field--fill">
+                             <label for="id_email" class="c-label">Email address</label>
+                             <input type="email" name="email" id="id_email" class="c-input-field" required=""/>
+                         </div>
+ 
+                         <div class="c-signup__field c-signup__field--fill">
+                             <label for="id_password1" class="c-label">Password</label>
+                             <input type="password" name="password1" id="id_password1" class="c-input-field"
+                                    required=""/>
+                             <span class="helptext"></span>
+                         </div>
+ 
+                         <div class="c-signup__field c-signup__field--fill">
+                             <label for="id_password2" class="c-label">Confirm Password</label>
+                             <input type="password" name="password2" id="id_password2" class="c-input-field"
+                                    required=""/>
+                             <span class="helptext">Please re-enter your password.</span>
+                         </div>
+ 
+                         <p class="text-danger">{{ form.non_field_errors }}</p>
+ 
+ 
+ 
+                         <div class="c-signup__button">
+             <button class="btn btn-outline-secondary btn-block mt-md" type="submit">Sign Up</button>
+         </div>
+                     </div>
+ 
+                 </form>
+ 
+ 
+             </div>
+       </div>
+       </div>
+       </div>
+
+
+{% endblock %}

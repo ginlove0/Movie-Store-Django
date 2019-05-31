@@ -1,0 +1,61 @@
+{% load static %}
+
+<!-- helpful custom library tags to define which url is active -->
+<!-- define active class by using python code active 'the-url' in the class tag -->
+{% load templatetags %}
+
+ <!-- Navigation -->
+        <!-- navbar-dark vs navbar-light???? -->
+        <nav class="navbar navbar-expand-md navbar-dark sticky-top">
+            <div class="container-fluid">
+                <a class="navbar-branch" href="{% url 'movie-list' %}">
+                    <img src="{% static 'images/movie_logo.png' %}" height="50" width="50">
+                </a>
+                <!-- Create an icon for when the websize shrink -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                    <!-- Create an icon for button -->
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+
+                    {% if user.is_authenticated %}
+                <li class="nav-item">
+                            <a class="nav-link" href="{% url 'order-index' %}">{{user.get_username}}</a>
+                        </li>
+
+                      <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout'%}?next={{request.path}}">Log out</a>
+                        </li>
+
+ <li class="nav-item">
+                            <a class="nav-link {% active 'mycart' %}" href="{% url 'mycart' %}">My Cart</a>
+                        </li>
+
+                        {% else %}
+
+                              <li class="nav-item">
+                            <!-- set active so that home is alway the default -->
+                            <a class="nav-link nav-link-size {% active '/user/login' %}" href="/user/login/">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/signup">Sign up</a>
+                        </li>
+
+
+                        {% endif %}
+
+                    </ul>
+
+    {% if request.path == '/' %}
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Seach" name="movie" aria-label="Search">
+                        <button class="btn btn-light my-sm-0" type="submit">Search</button>
+                    </form>
+
+{% endif %}
+                </div>
+            </div>
+        </nav>
+

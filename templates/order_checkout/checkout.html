@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load staticfiles %}
+{% load static %}
+{% load templatetags %}
+           <blockquote class="blockquote text-center mt-3">
+  <h1 class="mb-0">Checkout</h1>
+</blockquote>
+
+<div class="container d-flex justify-content-center">
+            <hr class="my-4">
+            <div class="row w-100">
+                <div class="col-md-2">
+                </div>
+                <div class="col-md-8">
+                    <div class="left">
+                        <h2 class="headingbox text-center">My Recent Orders</h2>
+                        <div class="section">
+                            <div id="payment_cart">
+                                <table id="tbl_orders" width="100%">
+                                    <tr>
+                                        <th>Product</th>
+                                        <th class="rightalign">Quantity</th>
+                                        <th class="rightalign">Price</th>
+                                    </tr>
+                                    {% for cart in carts %}
+                                    <tr>
+                                        <td>{{cart.movies.name}}</td>
+                                        <td class="rightalign">{{cart.quantity}}</td>
+                                        <td class="rightalign">{% multiply cart.movies.price cart.quantity %}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right mt-5">
+                        <h2 class="headingbox text-center">Your Payment Details</h2>
+                        <div class="section">
+                            <form method="post" action="/order/checkout/">
+                                {% csrf_token %}
+                                <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" required maxlength="255" name="address" class="form-control" placeholder="Address"/>
+</div>
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                <input type="text" required maxlength="255" name="order_user_name" class="form-control" placeholder="Full Name"/>
+</div>
+                                <div id="credit_card_details" style="display: block">
+                                    <table class="tbl_payment">
+                                        <tbody>
+                                            <tr>
+                                                <th align="left">
+                                                    <label for="card_type">Credit card type:</label>
+                                                </th>
+                                                <td>
+                                                    <select name="card_type" id="card_type">
+                                                        <option value="Visa">Visa</option>
+                                                        <option value="Visa">MasterCard</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th align="left">
+                                                    <label for="card_number">Credit card number:</label>
+                                                </th>
+                                                <td>
+                                                    <input type="text" name="card_number">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th align="left">
+                                                    <label for="expire_month">Credit card expiry:</label>
+                                                </th>
+                                                <td class="expire">
+                                                    <select name="expire_month" id="expire_month">
+                                                        <option value="1">January</option>
+                                                        <option value="2">Febuary</option>
+                                                        <option value="3">March</option>
+                                                        <option value="4">April</option>
+                                                        <option value="5">May</option>
+                                                        <option value="6">June</option>
+                                                        <option value="7">July</option>
+                                                        <option value="8">August</option>
+                                                        <option value="9">September</option>
+                                                        <option value="10">October</option>
+                                                        <option value="11">November</option>
+                                                        <option value="11">December</option>
+                                                    </select>
+                                                    <select name="expire_year" id="expire_year">
+                                                        <option value="2019">2019</option>
+                                                        <option value="2020">2020</option>
+                                                        <option value="2021">2021</option>
+                                                        <option value="2022">2022</option>
+                                                        <option value="2023">2023</option>
+                                                        <option value="2024">2024</option>
+                                                        <option value="2025">2025</option>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th align="left">
+                                                    <label for="card_cvv">Credit card CVV:</label>
+                                                </th>
+                                                <td>
+                                                    <input type="text" name="card_cvv">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <hr class="my-4">
+                                    <div class="d-flex justify-content-center mb-5">
+                                        <input type="submit" name="commit" class="btn btn-success" value="Complete Purchase">
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+<!--    <div class="container d-flex justify-content-center">-->
+<!--    <form class="form-group" method="post" action="{% url 'checkout-index' %}">-->
+
+<!--    {% csrf_token %}-->
+<!--    {{ form.as_p }}-->
+<!--    <input type="submit" class="btn btn-primary w-100" value="Checkout">-->
+<!--</form>-->
+
+</div>
+{% endblock %}

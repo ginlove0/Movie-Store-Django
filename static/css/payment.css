@@ -1,0 +1,35 @@
+.row{
+    background-color: #fff;
+    padding: 15px 15px 29px 15px;
+}
+
+.row .left{
+    width:40%;
+}
+
+.left{
+    float: left;
+}
+
+.headingbox{
+    background: #0099CC;
+    color: #fff;
+    font-weight: normal;
+    font-size: 23px;
+}
+
+table{
+    display: table;
+    border-collapse: separate;
+    border-color: grey;
+}
+
+.productprice .rightalign{
+    font-weight: bold;
+}
+
+.right{
+    float: right;
+    width: 50%;
+}
+

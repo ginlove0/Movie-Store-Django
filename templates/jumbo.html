@@ -1,0 +1,40 @@
+{% load static %}
+
+
+<div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-2">
+                    <!-- Create an jumbotron
+                    <div class="jumbotron">
+                        <img class="img-fluid" src="./images/shazam.png" width="200 " height="200">
+                        <p>Special Offer</p>
+                        <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10">
+                            <a href="#">
+                                <button type="button" class="btn btn-outline-secondary">Buy Now</button>
+                            </a>
+                        </div>
+                    </div>-->
+                </div>
+                <div class="col-md-8">
+                    <!-- Create an slide for movie advertisement -->
+                    <div id="slides" class="carousel slide" data-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-target="#slides" data-slide-to="0" class="active"></li>
+                            <li data-target="#slides" data-slide-to="1"></li>
+                            <li data-target="#slides" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="{% static './images/a3.jpg' %}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static './images/a3.jpg' %}">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{% static './images/a3.jpg' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>

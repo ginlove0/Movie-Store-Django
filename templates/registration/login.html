@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<!--
+<form method="post">
+  {% csrf_token %}
+
+
+  <button type="submit">Login</button>
+</form>
+
+-->
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="login-box well">
+                <body>
+                <div class="loginBox">
+                    <form method="post">
+<div class="form-group container mt-3">
+                                        <legend class="legend-title">Login</legend>
+                        {% csrf_token %}
+                        <p class="text-danger">{{ form.non_field_errors }}</p>
+
+                       <div class="form-group">
+    <label for="id_username">Email address</label>
+    <input type="email" class="form-control" autofocus required id="id_username" name="username" placeholder="Enter email">
+  </div>
+
+    <div class="form-group">
+    <label for="id_password">Password</label>
+    <input type="password" class="form-control" id="id_password" required name="password" placeholder="Password">
+  </div>
+
+
+
+
+                        <div/>
+
+
+                        <span class='text-center'><a href="{% url 'password_reset' %}"
+                                                     class="text-sm">Forgot Password?</a></span>
+
+                        <div class="form-group">
+                            <p class="text-center m-t-xs text-sm">Do you have an account?</p>
+                            <button class="btn btn-outline-secondary btn-block mt-md">Login</button>
+                        </div>
+
+                        </div>
+                    </form>
+                    {% endblock %}
+                </div>
+                </body>
+            </div>
+        </div>
+    </div>
+
+</div>

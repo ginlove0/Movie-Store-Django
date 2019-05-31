@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  db:
+    image: postgres
+  moviestore:
+    build: .
+    volumes:
+      - .:/app
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+    - DBUSER=postgres
+    - DBPASSWORD=postgres_password
+    - DBNAME=postgres
+    - DBPORT=5432
+    - DBHOST=db
+    - DBENGINE=django.db.backends.postgresql
+    depends_on:
+    - db

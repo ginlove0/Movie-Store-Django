@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% include 'featurebar.html' %}
+{% include 'jumbo.html' %}
+
+
+            <hr class="my-4">
+            <section class="cars">
+                {% for movie in object_list %}
+                <div class="car">
+
+
+
+
+
+
+                            <img class="cars-image" src="{{movie.movie_images.url}}"  />
+                             <h4 class="car__name" id="movie-name">{{ movie.name }}</h4>
+                                                                     <h4>${{movie.price}}</h4>
+   <h4>In stock: {{ movie.in_stock }}</h4>
+                                       <form action="{% url 'cart-view' movie.id %}" method="POST">
+                                        {% csrf_token %}
+                                        <input type="hidden" value="{{ movie.id }}"/>
+                                        {% if movie.in_stock > 0 %}
+                                        <input type="submit" value="Add to cart" class="btn__add_to_cart" />
+                                        {% endif %}
+                                    </form>
+
+
+                </div>
+                {% endfor %}
+            </section>
+
+
+<!--
+
+   <ul>
+        {% for movie in object_list %}
+            <li>{{ movie.name }}</li>
+            <form action="{% url 'cart-view' movie.id %}" method="POST">
+            {% csrf_token %}
+            <input type="hidden" value="{{ movie.id }}"/>
+            <input type="submit" value="Add to cart" />
+</form>
+        {% endfor %}
+    </ul>
+        {% for s in request.session.name %}
+                <h1>Session is: {{ s }}</h1>
+
+
+        {% endfor %}
+
+
+
+-->
+
+{% endblock %}
