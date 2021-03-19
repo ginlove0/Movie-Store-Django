@@ -24,7 +24,7 @@ django-rest-framework-social-oauth2==1.1.0
 django-sendgrid==1.0.1
 django-sendgrid-v5==0.7.0
 django-storages==1.7.1
-djangorestframework==3.9.0
+djangorestframework==3.11.2
 djangorestframework-jwt==1.11.0
 docker==3.6.0
 docker-compose==1.21.2
