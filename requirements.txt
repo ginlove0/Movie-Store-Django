@@ -1,5 +1,5 @@
 awsebcli==3.14.8
-Babel==2.6.0
+Babel==2.9.1
 blessed==1.15.0
 boto3==1.9.72
 botocore==1.12.72
